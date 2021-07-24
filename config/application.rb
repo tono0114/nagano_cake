@@ -12,5 +12,6 @@ module NaganoCake
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+    config.time_zone = 'Tokyo'
   end
 end

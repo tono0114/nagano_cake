@@ -1,0 +1,9 @@
+class CartItems < ActiveRecord::Migration[5.2]
+  def change
+    create_table :cart_items do |t|
+      
+      t.integer :amount
+      
+    end
+  end
+end

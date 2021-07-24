@@ -1,4 +1,29 @@
-<body>
-  <%= render 'layouts/admin_header' %>
-  <h1>ここは管理者用トップページです</h1>
-</body>
+<%= render 'layouts/admin_header' %>
+<div class="container">
+  <div class="row">
+    <div class="col">
+  　　<h5 class="order_top">注文履歴一覧</h5>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>購入日時</th>
+              <th>購入者</th>
+              <th>注文個数</th>
+              <th>注文ステータス</th>
+            </tr>
+          </thead>
+          <tbody>
+          <% @orders.each do |order| %>
+            <tr>
+              <td><%= link_to order.created_at.to_s(:datetime_jp),admin_order_path,class: "text_secondary" %></td>
+              <td><%= order.customer.last_name %><%= order.customer.first_name %></td>
+              <td><%= order.order_item.amount %></td>
+              <td><%= order.order_status %></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+        <%= paginate @orders %>
+    </div>
+  </div>
+</div>
