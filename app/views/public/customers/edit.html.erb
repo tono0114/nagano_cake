@@ -2,7 +2,42 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      
+      <%= form_with model: @customer,url: public_customers_path,local: true do |f| %>
+      <table>
+        <tr>
+          <td>氏名</td>
+          <td><%= f.text_field :last_name %></td>
+          <td><%= f.text_field :first_name %></td>
+        </tr>
+        <tr>
+          <td>フリガナ</td>
+          <td><%= f.text_field :last_name_kana %></td>
+          <td><%= f.text_field :first_name_kana %></td>
+        </tr>
+        <tr>
+          <td>郵便番号</td>
+          <td><%= f.text_field :postal_code %></td>
+        </tr>
+        <tr>
+          <td>住所</td>
+          <td><%= f.text_field :address %></td>
+        </tr>
+        <tr>
+          <td>電話番号</td>
+          <td><%= f.text_field :telephone_number %></td>
+        </tr>
+        <tr>
+          <td>メールアドレス</td>
+          <td><%= f.email_field :email %></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><%= f.submit "編集内容を保存",class: "btn btn-success btn-sm" %></td>
+          <td></td>
+          <td><%= link_to "退会する",public_customers_unsubscribe_path,class: "btn btn-danger btn-sm" %></td>
+        </tr>
+      </table>
+      <% end %>
     </div>
   </div>
 </div>

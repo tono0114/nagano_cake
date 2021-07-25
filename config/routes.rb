@@ -19,10 +19,21 @@ Rails.application.routes.draw do
 
     root to:'homes#top'
     get 'homes/about' => 'homes#about'
+
     resources :items, only: [:index, :show]
-    resource :customers, except: [:create, :destroy]
+
+    resource :customers, only: [:edit, :update]
+    get 'customers/mypage' => 'customers#show'
+    get 'customers/unsubscribe' => 'customers#unsubscribe'
+    patch 'customers/withdrawal' => 'customers#withdrawal'
+
     resources :cart_items, except: [:new, :show]
+    delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
+
     resources :orders, except: [:update, :destroy]
+    post 'orders/confirm' => 'orders#confirm'
+    get 'orders/complete' => 'orders#complete'
+
     resources :addresses, except: [:new, :show]
 
   end
