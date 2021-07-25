@@ -1,0 +1,27 @@
+<%= render 'layouts/public_header' %>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h5 class="sign_in">ログイン</h5>
+        <h7 class="sign_in_form">会員の方はこちらからログイン</h7>
+        <%= form_with model: @customer,url: customer_session_path,local: true do |f| %>
+        <table>
+          <tr>
+            <td>メールアドレス</td>
+            <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+          </tr>
+          <tr>
+            <td>パスワード</td>
+            <td><%= f.password_field :password, autocomplete: "current-password" %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= f.submit "ログイン",class: "btn btn-primary btn-sm" %></td>
+          </tr>
+        </table>
+        <% end %>
+        <h7 class="sign_up_yet">会員登録がお済みでない方</h7>
+        <p><%= link_to "こちら ",new_customer_registration_path %>から新規登録を行なってください。</p>
+    </div>
+  </div>
+</div>

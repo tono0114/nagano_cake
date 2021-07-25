@@ -1,0 +1,40 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg">
+    <div class="container">
+      <a class="navbar-brand">
+        <span>ケーキの森</span>
+      </a>
+      <div class="navbar-collapse collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <% if customer_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "マイページ",public_customers_path,class: "nav-link text-light" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "商品一覧",public_items_path,class: "nav-link text-light" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "カート",public_cart_items_path,class: "nav-link text-light" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ログアウト",destroy_customer_session_path,method: :delete,class: "nav-link text-light" %>
+          </li>
+          <% else %>
+          <li class="nav-item">
+            <%= link_to "About",public_homes_about_path,class: "nav-link text-light" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "商品一覧",public_items_path,class: "nav-link text-light" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "新規登録",new_customer_registration_path,class: "nav-link text-light" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ログイン",new_customer_session_path,class: "nav-link text-light" %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

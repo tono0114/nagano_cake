@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :customers, except: [:new, :create, :destroy]
     resources :orders, only: [:show, :update]
     resources :order_items, only: [:update]
+
   end
 
   devise_for :admins, controllers: {
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
     }
 
   namespace :public do
+
     root to:'homes#top'
     get 'homes/about' => 'homes#about'
     resources :items, only: [:index, :show]
@@ -22,11 +24,12 @@ Rails.application.routes.draw do
     resources :cart_items, except: [:new, :show]
     resources :orders, except: [:update, :destroy]
     resources :addresses, except: [:new, :show]
+
   end
-  
-  devise_for :publics, controllers: {
-    registrations: 'public/registrations'
-    sessions: 'public/sessions'
+
+  devise_for :customers, controllers: {
+      registrations: 'public/registrations',
+      sessions: 'public/sessions'
   }
 
 end
