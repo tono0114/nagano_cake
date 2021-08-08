@@ -1,8 +1,33 @@
 <%= render 'layouts/public_header' %>
 <div class="container">
   <div class="row">
-    <div class="col">
-      
+    <div class="col-md-3">
+      <%= render "layouts/genre_search_form" %>
+    </div>
+    <div class="col-md-4">
+      <%= image_tag @item.image.url, size: "350x250" %>
+    </div>
+    <div class="col-md-5">
+      <h2><strong><%= @item.name %></strong></h2>
+      <p><%= @item.introduction %></p>
+      <br>
+      </br>
+      <table>
+        <tr>
+          <td><h2>¥<%= @item.add_tax_price.to_s(:delimited) %></h2></td>
+          <td>(税込)</td>
+        </tr>
+      </table>
+      <table>
+        <%= form_with model: @cart_item, url: public_cart_items_path, local: true do |f| %>
+        <tr>
+          <td><%= f.hidden_field	:item_id, :value => @item.id %></td>
+          <td><%= f.select :amount, [[1],[2],[3],[4],[5],[6],[7],[8],[9],[10]], prompt: "個数選択", class: "select-form"  %></td>
+          <td><pre>   </pre></td>
+          <td><%= f.submit "カートに入れる", class: "btn btn-success btn-sm" %></td>
+        </tr>
+        <% end %>
+      </table>
     </div>
   </div>
 </div>

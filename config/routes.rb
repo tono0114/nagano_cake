@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  devise_for :admins, controllers: {
+      sessions: 'admin/sessions'
+    }
+
   namespace :admin do
 
     get 'homes/top' => 'homes#top'
@@ -11,8 +16,9 @@ Rails.application.routes.draw do
 
   end
 
-  devise_for :admins, controllers: {
-      sessions: 'admin/sessions'
+  devise_for :customers, controllers: {
+      registrations: 'public/registrations',
+      sessions: 'public/sessions'
     }
 
   namespace :public do
@@ -27,8 +33,11 @@ Rails.application.routes.draw do
     get 'customers/unsubscribe' => 'customers#unsubscribe'
     patch 'customers/withdrawal' => 'customers#withdrawal'
 
-    resources :cart_items, except: [:new, :show]
-    delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
+    resources :cart_items do
+      collection do
+        delete 'destroy_all'
+      end
+    end
 
     resources :orders, except: [:update, :destroy]
     post 'orders/confirm' => 'orders#confirm'
@@ -37,10 +46,5 @@ Rails.application.routes.draw do
     resources :addresses, except: [:new, :show]
 
   end
-
-  devise_for :customers, controllers: {
-      registrations: 'public/registrations',
-      sessions: 'public/sessions'
-  }
 
 end

@@ -1,8 +1,29 @@
 <%= render 'layouts/public_header' %>
 <div class="container">
   <div class="row">
-    <div class="col">
-      
+    <div class="col-md-12">
+      <h5>配送先編集</h5>
+    </div>
+    <div class="col mt-3">
+      <table>
+      <%= form_with model: @address, url: public_address_path, local: true do |f| %>
+        <tr>
+          <td class="col-md-3"><%= f.label :postal_code, "郵便番号(ハイフンなし)" %></td>
+          <td class="col-md-3"><%= f.text_field :postal_code %></td>
+          <td class="col-md-6"></td>
+        </tr>
+        <tr>
+          <td class="col-md-3"><%= f.label :address, "住所" %></td>
+          <td class="col-md-6"><%= f.text_field :address, size: "50" %></td>
+          <td class="col-md-3"></td>
+        </tr>
+        <tr>
+          <td class="col-md-3"><%= f.label :name, "宛名" %></td>
+          <td class="col-md-3"><%= f.text_field :name %></td>
+          <td class="col-md-6"><%= f.submit "変更内容を保存", class: "btn btn-success btn-sm" %></td>
+        </tr>
+      <% end %>
+      </table>
     </div>
   </div>
 </div>

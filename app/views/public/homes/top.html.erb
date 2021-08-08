@@ -1,8 +1,36 @@
 <%= render 'layouts/public_header' %>
 <div class="container">
   <div class="row">
-    <div class="col">
-      
+    <div class="col-md-3">
+      <%= render "layouts/genre_search_form" %>
     </div>
+    <div class="col-md-9">
+        <p class="site_explanation"><strong>
+          ようこそ、ながのCAKEへ！</br>
+          このサイトは、ケーキ販売のECサイトになります。</br>
+          会員でない方も商品の閲覧はできますが、</br>
+          購入には会員登録が必要になります。
+        </strong></p>
+        <h2 class="new_item">新着商品</h2>
+    </div>
+    <div class="col-md-3"></div>
+      <% @items.each do |item| %>
+        <div class="col-sm-2">
+        <%= link_to public_item_path(item.id) do %>
+        <table class="item_button">
+          <tr>
+            <td><%= image_tag item.image.url, size: "150x100" %></td>
+          </tr>
+          <tr>
+            <td><%= item.name %></td>
+          </tr>
+          <tr>
+            <td>¥<%= item.price %></td>
+          </tr>
+        </table>
+        <% end %>
+        </div>
+      <% end %>
+      <p><%= link_to "全ての商品を見る >",public_items_path %></p>
   </div>
 </div>

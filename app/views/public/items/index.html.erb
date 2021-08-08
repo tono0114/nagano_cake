@@ -1,8 +1,36 @@
 <%= render 'layouts/public_header' %>
 <div class="container">
   <div class="row">
-    <div class="col">
-      
+    <div class="col-md-3">
+      <%= render "layouts/genre_search_form" %>
+    </div>
+    <div class="col-md-9">
+      <table>
+        <tr>
+          <td><h2>商品一覧</h2></td>
+          <td><h4>(全x件)</h4></td>
+        </tr>
+      </table>
+      <div class="d-flex flex-wrap mt-3">
+      <% @items.each do |item| %>
+        <div class="col-sm-3 flex-fill mb-3">
+        <%= link_to public_item_path(item.id), class: "item_button" do %>
+        <table>
+          <tr>
+            <td><%= image_tag item.image.url, size: "200x150" %></td>
+          </tr>
+          <tr>
+            <td><%= item.name %></td>
+          </tr>
+          <tr>
+            <td>¥<%= item.price %></td>
+          </tr>
+        </table>
+        <% end %>
+        </div>
+      <% end %>
+      </div>
+      <div class="d-flex justify-content-center"><%= paginate @items %></div>
     </div>
   </div>
 </div>
