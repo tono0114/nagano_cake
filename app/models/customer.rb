@@ -10,6 +10,10 @@ class Customer < ApplicationRecord
   has_many :cart_items
   has_many :orders
 
+  #def active_for_authentication?
+    #super && (self.is_active == true)
+  #end
+
   def full_address
     self.postal_code + " " + self.address + " " + self.last_name + self.first_name
   end
