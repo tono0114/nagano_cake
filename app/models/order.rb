@@ -8,4 +8,5 @@ class Order < ApplicationRecord
   attribute :shipping_cost, :integer, default: '800'
 
 
+
 end

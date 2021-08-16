@@ -1,18 +1,20 @@
 <%= render 'layouts/admin_header' %>
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="col-md-12 mb-5 ml-5">
       <h5>商品新規登録</h5>
+    </div>
+    <div class="col-md-12 d-flex justify-content-center">
       <%= form_with model: @item,url: admin_items_path,local: true do |f| %>
       <table>
         <tbody>
           <tr>
             <td>商品画像</td>
-            <td><%= f.file_field :image %></td>
+            <td><%= f.file_field :image, class: "mb-2" %></td>
           </tr>
           <tr>
             <td>商品名</td>
-            <td><%= f.text_field :name, placeholder: "商品名", size: "31x1" %></td>
+            <td><%= f.text_field :name, placeholder: "商品名", size: "31x1", class: "mb-2" %></td>
           </tr>
           <tr>
             <td>商品説明</td>
@@ -28,7 +30,7 @@
           </tr>
           <tr>
             <td>税抜価格</td>
-            <td><%= f.text_field :price,placeholder: "1000" %>円</td>
+            <td><%= f.text_field :price, class: "my-2", placeholder: "1000" %>円</td>
           </tr>
           <tr>
             <td>販売ステータス</td>
@@ -41,7 +43,9 @@
           </tr>
         </tbody>
       </table>
-      <%= f.submit "新規登録",class: "btn btn-success btn-md" %>
+    </div>
+    <div class="col-md-12 d-flex justify-content-center">
+      <%= f.submit "新規登録",class: "btn btn-success btn-md px-4 mt-3 mr-5" %>
       <% end %>
     </div>
   </div>

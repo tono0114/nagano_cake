@@ -31,7 +31,7 @@ Rails.application.routes.draw do
     resource :customers, only: [:edit, :update]
     get 'customers/mypage' => 'customers#show'
     get 'customers/unsubscribe' => 'customers#unsubscribe'
-    patch 'customers/withdrawal' => 'customers#withdrawal'
+    patch '/customers/withdrawal' => 'customers#withdrawal'
 
     resources :cart_items do
       collection do

@@ -4,14 +4,18 @@
     <div class="col-md-3">
       <%= render "layouts/genre_search_form" %>
     </div>
-    <div class="col-md-9">
-        <p class="site_explanation"><strong>
-          ようこそ、ながのCAKEへ！</br>
+    <div class="col-md-9 content_top">
+      <div class="back_image"></div>
+        <p class="site_explanation">
+          ようこそ、'nagano_cake'へ！</br>
           このサイトは、ケーキ販売のECサイトになります。</br>
           会員でない方も商品の閲覧はできますが、</br>
           購入には会員登録が必要になります。
-        </strong></p>
-        <h2 class="new_item">新着商品</h2>
+        </p>
+    </div>
+    <div class="col-md-3"></div>
+    <div class="col-md-9">
+      <h2 class="new_item">新着商品</h2>
     </div>
     <div class="col-md-3"></div>
       <% @items.each do |item| %>

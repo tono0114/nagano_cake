@@ -57,7 +57,7 @@
         </tr>
         <tr>
           <th class="col-md-2">お届け先</th>
-          <td class="col-md-8">〒<%= @new_order.customer.full_address %></td>
+          <td class="col-md-8">〒<%= @addresses.full_address %></td>
         </tr>
       </table>
       <%= form_with model: @new_order, url: public_orders_path, local: true do |f| %>

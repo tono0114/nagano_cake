@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 2021_07_31_014551) do
     t.string "postal_code"
     t.string "address"
     t.string "telephone_number"
-    t.boolean "is_active"
+    t.boolean "is_active", default: true, null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 2021_07_31_014551) do
     t.string "image_id"
     t.text "introduction"
     t.integer "price"
-    t.boolean "is_active"
+    t.boolean "is_active", default: true, null: false
     t.integer "genre_id"
     t.string "image"
   end

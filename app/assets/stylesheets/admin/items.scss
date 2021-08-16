@@ -4,5 +4,21 @@
 
 .item_top {
   background-color: #f0f0f0;
+  width: 11%;
+}
+
+.items_table {
+  background-color: #f5f5f5;
+}
+
+.items_show {
   width: 10%;
+}
+
+.items_edit {
+  width: 10%;
+}
+
+.plus_button:hover {
+  opacity: 0.6;
 }

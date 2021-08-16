@@ -10,10 +10,6 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-   #def create
-    #@customer = Customer.new(configure_sign_up_params)
-    #@customer.save
-    #redirect_to public_root_path
    #end
 
   # GET /resource/edit
@@ -61,9 +57,5 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # def configure_account_update_params
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
   # end
-
-   #def configure_sign_up_params
-    #params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :email, :postal_code, :address, :telephone_number, :password, :password_confirmation)
-   #end
 
 end

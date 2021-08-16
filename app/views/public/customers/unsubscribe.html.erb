@@ -12,7 +12,7 @@
         <table>
           <tr>
             <td><%= link_to "退会しない", public_customers_mypage_path, class: "btn btn-primary btn-sm mr-3" %></td>
-            <td><%= link_to "退会する", public_customers_withdrawal_path, method: :patch, class: "btn btn-danger btn-sm" %></td>
+            <td><%= link_to "退会する", public_customers_withdrawal_path(@customer), method: :patch, class: "btn btn-danger btn-sm" %></td>
           </tr>
         </table>
       </div>

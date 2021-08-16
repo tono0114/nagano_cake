@@ -1,22 +1,27 @@
 <%= render 'layouts/admin_header' %>
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="col-md-12 mb-5">
       <h5 class="genre_top">ジャンル一覧・追加</h5>
+    </div>
+    <div class="col-md-12 mb-5">
       <table>
         <tbody>
         <%= form_with model: @new_genre,url: admin_genres_path,local: true do |f| %>
           <tr>
-            <td>ジャンル名</td>
-            <td><%= f.text_field :name, autofocus: true %></td>
+            <td><%= f.label :name, "ジャンル名" %></td>
+            <td><%= f.text_field :name, autofocus: true, class: "mx-5"  %></td>
             <td><%= f.submit "新規登録",class: "btn btn-success btn-md" %></td>
           </tr>
         <% end %>
         </tbody>
       </table>
+    </div>
+    <div class="col-md-4">
       <table class="table">
-        <thead>
+        <thead class="genre_table">
           <th>ジャンル</th>
+          <th></th>
         </thead>
         <tbody>
           <% @genres.each do |genre| %>

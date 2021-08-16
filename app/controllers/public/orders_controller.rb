@@ -5,7 +5,7 @@ class Public::OrdersController < ApplicationController
         if @new_order.save
             redirect_to public_orders_complete_path
         else
-           @customer = Customer.find_by(params[:id])
+           @customer = current_customer
            @customers = Customer.all
            render 'public/orders/new'
         end
@@ -13,7 +13,7 @@ class Public::OrdersController < ApplicationController
 
     def new
         @new_order = Order.new
-        @customer = Customer.find_by(params[:id])
+        @customer = current_customer
         @customers = Customer.all
     end
 
@@ -26,7 +26,7 @@ class Public::OrdersController < ApplicationController
     def confirm
         @new_order = Order.new(order_confirm_params)
         @cart_items = CartItem.all
-        @customer = Customer.all
+        @addresses = Address.all
     end
 
     def complete
