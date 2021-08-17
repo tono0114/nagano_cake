@@ -7,6 +7,8 @@ class Order < ApplicationRecord
 
   attribute :shipping_cost, :integer, default: '800'
 
-
+  def full_address
+    self.postal_code + " " + self.address + " " + self.name
+  end
 
 end

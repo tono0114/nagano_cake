@@ -33,7 +33,7 @@
       <table border="1">
         <tr>
           <th>送料</th>
-          <td><%= @new_order.shipping_cost %></td>
+          <td><%= @order.shipping_cost %></td>
         </tr>
         <tr>
           <th>商品合計</th>
@@ -50,22 +50,17 @@
       <table>
         <tr>
           <th class="col-md-2">支払方法</th>
-          <td class="col-md-3"><%= @new_order.payment_method %></td>
+          <td class="col-md-3"><%= @order.payment_method %></td>
         </tr>
         <tr>
           <td>&ensp;</td>
         </tr>
         <tr>
           <th class="col-md-2">お届け先</th>
-          <td class="col-md-8">〒<%= @addresses.full_address %></td>
+          <td class="col-md-8">〒<%= @order.address %></td>
         </tr>
       </table>
-      <%= form_with model: @new_order, url: public_orders_path, local: true do |f| %>
-      <%= f.hidden_field :name %>
-      <%= f.hidden_field :postal_code %>
-      <%= f.hidden_field :address %>
-      <%= f.hidden_field :payment_method %>
-      <%= f.hidden_field :customer_id %>
+      <%= form_with model: @order, url: public_orders_path, local: true do |f| %>
       <%= f.submit "注文を確定する", class: "btn btn-success btn-sm mt-4" %>
       <% end %>
     </div>

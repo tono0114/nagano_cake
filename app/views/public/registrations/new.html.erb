@@ -1,56 +1,68 @@
 <%= render 'layouts/public_header' %>
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="col-md-12 mb-5">
       <h5 class="sign_up">新規会員登録</h5>
-        <table>
+    </div>
+    <div class="col-md-12">
+      <table>
         <%= form_with model: @customer,url: customer_registration_path,local: true do |f| %>
-          <tbody>
-            <tr>
-              <div class="field">
-              <td>名前</td>
-              <td><%= f.label :last_name, "(姓)" %><%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", placeholder: "長野" %></td>
-              <td><%= f.label :first_name, "(名)" %><%= f.text_field :first_name, autocomplete: "first_name", placeholder: "菓子男" %></td>
-              </div>
-            </tr>
-            <tr>
-              <td>フリガナ</td>
-              <td>(セイ)<%= f.text_field :last_name_kana, autocomplete: "last_name_kana", placeholder: "ナガノ" %></td>
-              <td>(メイ)<%= f.text_field :first_name_kana, autocomplete:"first_name_kana", placeholder: "カシオ" %></td>
-            </tr>
-            <tr>
-              <td><%= f.label :email,"メールアドレス" %></td>
-              <td><%= f.email_field :email, placeholder: "cake-daisuki@example.com", autocomplete: "email" %></td>
-            </tr>
-            <tr>
-              <td>郵便番号(ハイフンなし)</td>
-              <td><%= f.text_field :postal_code, autocomplete: "postal_code", placeholder: "0000000" %></td>
-            </tr>
-            <tr>
-              <td>住所</td>
-              <td><%= f.text_field :address, autocomplete: "address", placeholder: "東京都渋谷区代々木神園町0-0" %> </td>
-            </tr>
-            <tr>
-              <td>電話番号(ハイフンなし)</td>
-              <td><%= f.text_field :telephone_number, autocomplete: "telephone_number", placeholder: "00000000000" %></td>
-            </tr>
-            <tr>
-              <td>パスワード(6文字以上)</td>
-              <td><%= f.password_field :password, autocomplete: "new-password" %></td>
-            </tr>
-            <tr>
-              <td>パスワード(確認用)</td>
-              <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td><%= f.submit "新規登録",class: "btn btn-success btn-sm" %></td>
-            </tr>
-          </tbody>
+        <tr>
+          <td><p class="mb-3">名前</p></td>
+          <td>
+            &emsp;<%= f.label :last_name, "(姓)",class: "mb-3" %>
+            <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", placeholder: "長野",class: "mb-3" %>
+          </td>
+          <td>
+            &emsp;<%= f.label :first_name, "(名)", class: "ml-3 mb-3" %>
+            <%= f.text_field :first_name, autocomplete: "first_name", placeholder: "菓子男", class: "mb-3" %>
+          </td>
+        </tr>
+        <tr>
+          <td><p class="mb-3">フリガナ</p></td>
+          <td>
+            <%= f.label :last_name_kana, "(セイ)", class: "mb-3" %>
+            <%= f.text_field :last_name_kana, autocomplete: "last_name_kana", placeholder: "ナガノ" %>
+          </td>
+          <td>
+            <%= f.label :first_name_kana, "(メイ)", class: "ml-3 mb-3" %>
+            <%= f.text_field :first_name_kana, autocomplete:"first_name_kana", placeholder: "カシオ" %>
+          </td>
+        </tr>
+        <tr>
+          <td><p class="mb-3">メールアドレス</p></td>
+          <td>&emsp;&emsp;&emsp;<%= f.email_field :email, placeholder: "cake-daisuki@example.com", autocomplete: "email", class: "mb-3" %></td>
+        </tr>
+        <tr>
+          <td><p class="mb-3 mr-5">郵便番号(ハイフンなし)</p></td>
+          <td>&emsp;&emsp;&emsp;<%= f.text_field :postal_code, autocomplete: "postal_code", placeholder: "0000000", class: "mb-3" %></td>
+        </tr>
+        <tr>
+          <td><p class="mb-3">住所</p></td>
+          <td>&emsp;&emsp;&emsp;<%= f.text_field :address, autocomplete: "address", placeholder: "東京都渋谷区代々木神園町0-0", class: "mb-3" %></td>
+        </tr>
+        <tr>
+          <td><p class="mb-3">電話番号(ハイフンなし)</p></td>
+          <td>&emsp;&emsp;&emsp;<%= f.text_field :telephone_number, autocomplete: "telephone_number", placeholder: "00000000000", class: "mb-3" %></td>
+        </tr>
+        <tr>
+          <td><p class="mb-3">パスワード(6文字以上)</p></td>
+          <td>&emsp;&emsp;&emsp;<%= f.password_field :password, autocomplete: "new-password", class: "mb-3" %></td>
+        </tr>
+        <tr>
+          <td><p class="mb-3">パスワード(確認用)</p></td>
+          <td>&emsp;&emsp;&emsp;<%= f.password_field :password_confirmation, autocomplete: "new-password", class: "mb-3" %></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>&emsp;&emsp;&emsp;<%= f.submit "新規登録",class: "btn btn-success btn-sm px-5 mb-4" %></td>
+        </tr>
         <% end %>
-        </table>
+      </table>
+    </div>
+    <div class="col-md-12">
       <h5 class="finished_sign_up">既に登録済みの方</h5>
-      　<p><%= link_to "こちら ",new_customer_session_path %>からログインしてください。</p>
+      <p class="ml-5"><%= link_to "こちら ",new_customer_session_path %>からログインしてください。</p>
     </div>
   </div>
 </div>

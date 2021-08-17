@@ -4,7 +4,7 @@
     <div class="col-md-3">
       <%= render "layouts/genre_search_form" %>
     </div>
-    <div class="col-md-9 content_top">
+    <div class="col-md-9 content_top mb-3">
       <div class="back_image"></div>
         <p class="site_explanation">
           ようこそ、'nagano_cake'へ！</br>
@@ -14,7 +14,7 @@
         </p>
     </div>
     <div class="col-md-3"></div>
-    <div class="col-md-9">
+    <div class="col-md-9 mb-3">
       <h2 class="new_item">新着商品</h2>
     </div>
     <div class="col-md-3"></div>
@@ -23,7 +23,7 @@
         <%= link_to public_item_path(item.id) do %>
         <table class="item_button">
           <tr>
-            <td><%= image_tag item.image.url, size: "150x100" %></td>
+            <td><%= image_tag item.image.url, size: "180x125" %></td>
           </tr>
           <tr>
             <td><%= item.name %></td>
@@ -35,6 +35,8 @@
         <% end %>
         </div>
       <% end %>
+    <div class="col-md-12 mt-3 text-right">
       <p><%= link_to "全ての商品を見る >",public_items_path %></p>
+    </div>
   </div>
 </div>

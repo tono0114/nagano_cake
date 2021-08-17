@@ -1,35 +1,35 @@
 <%= render 'layouts/public_header' %>
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 mb-4">
       <h5 class="addresses">配送先登録/一覧</h5>
     </div>
     <div class="col">
       <table>
       <%= form_with model: @address, url: public_addresses_path, local: true do |f| %>
         <tr>
-          <td class="col-md-3">郵便番号(ハイフンなし)</td>
-          <td class="col-md-6"><%= f.text_field :postal_code %></td>
+          <td class="col-md-3"><p class="mb-2">郵便番号(ハイフンなし)</p></td>
+          <td class="col-md-6"><%= f.text_field :postal_code, class: "mb-2" %></td>
           <td class="col-md-3"></td>
         </tr>
         <tr>
-          <td class="col-md-3">住所</td>
-          <td class="col-md-6"><%= f.text_field :address, size: "50" %></td>
+          <td class="col-md-3"><p class="mb-2">住所</p></td>
+          <td class="col-md-6"><%= f.text_field :address, class: "mb-2", size: "50" %></td>
           <td class="col-md-3"></td>
         </tr>
         <tr>
-          <td class="col-md-3">宛名</td>
-          <td class="col-md-3"><%= f.text_field :name %></td>
-          <td class="col-md-6"><%= f.submit "新規登録", class: "btn btn-success btn-sm" %></td>
+          <td class="col-md-3"><p class="mb-2">宛名</p></td>
+          <td class="col-md-3"><%= f.text_field :name, class: "mb-2" %></td>
+          <td class="col-md-6"><%= f.submit "新規登録", class: "btn btn-success btn-sm px-4" %></td>
         </tr>
         <tr>
           <td><%= f.hidden_field :customer_id, :value => @customer.id %></td>
         </tr>
       <% end %>
       </table>
-      <div class="col-md-8">
-        <table border="1" class="mt-5">
-          <thead>
+      <div class="col-md-9">
+        <table border="1" class="mt-5" width="100%">
+          <thead class="address_table_title">
             <tr>
               <th class="col-md-1">郵便番号</th>
               <th class="col-md-3">住所</th>
@@ -44,8 +44,8 @@
               <td><%= address.address %></td>
               <td><%= address.name %></td>
               <td>
-                <%= link_to "編集する",edit_public_address_path(address.id), class: "btn btn-success btn-sm ml-5 mr-2" %>
-                <%= link_to "削除する",public_address_path(address.id), method: :delete, class: "btn btn-danger btn-sm" %>
+                <%= link_to "編集する",edit_public_address_path(address.id), class: "btn btn-success btn-sm ml-5 mr-2 px-3" %>
+                <%= link_to "削除する",public_address_path(address.id), method: :delete, class: "btn btn-danger btn-sm px-3" %>
               </td>
             </tr>
             <% end %>

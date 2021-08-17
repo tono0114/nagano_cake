@@ -10,7 +10,8 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-   #end
+    #def create
+    #end
 
   # GET /resource/edit
   # def edit
@@ -38,7 +39,10 @@ class Public::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
    def after_sign_up_path_for(resource)
-     public_root_path(resource)
+      flash[:notice] = "いらっしゃいませ、"
+      flash[:notice_2] = "さん！"
+      flash[:name] = current_customer.last_name
+      public_root_path(resource)
    end
 
     # The path used after sign up for inactive accounts.

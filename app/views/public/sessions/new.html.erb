@@ -1,27 +1,34 @@
 <%= render 'layouts/public_header' %>
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="col-md-12 mb-4">
       <h5 class="sign_in">ログイン</h5>
-        <h7 class="sign_in_form">会員の方はこちらからログイン</h7>
-        <%= form_with model: @customer,url: customer_session_path,local: true do |f| %>
-        <table>
-          <tr>
-            <td>メールアドレス</td>
-            <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
-          </tr>
-          <tr>
-            <td>パスワード</td>
-            <td><%= f.password_field :password, autocomplete: "current-password" %></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td><%= f.submit "ログイン",class: "btn btn-primary btn-sm" %></td>
-          </tr>
-        </table>
-        <% end %>
-        <h7 class="sign_up_yet">会員登録がお済みでない方</h7>
-        <p><%= link_to "こちら ",new_customer_registration_path %>から新規登録を行なってください。</p>
+    </div>
+    <div class="col-md-12 mb-4">
+      <h7 class="sign_in_form ml-5">会員の方はこちらからログイン</h7>
+    </div>
+    <div class="col-md-10 d-flex justify-content-center">
+      <%= form_with model: @customer,url: customer_session_path,local: true do |f| %>
+      <table>
+        <tr>
+          <td><%= f.label :mail, "メールアドレス", class: "mb-2 mr-5" %></td>
+          <td><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "cake_daisuki@example.com", class: "mb-2", size: "40" %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :password, "パスワード", class: "mb-2 mr-5" %></td>
+          <td><%= f.password_field :password, autocomplete: "current-password", size: "40" %></td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-10 text-center mt-4">
+      <%= f.submit "ログイン",class: "btn btn-primary btn-sm px-4" %></td>
+      <% end %>
+    </div>
+    <div class="col-md-12 mb-4">
+      <h7 class="sign_up_yet mb-3 ml-5">会員登録がお済みでない方</h7>
+    </div>
+    <div class="col-md-8 text-center">
+      <p><%= link_to "こちら ",new_customer_registration_path %>から新規登録を行なってください。</p>
     </div>
   </div>
 </div>
