@@ -2,6 +2,7 @@ class Public::OrdersController < ApplicationController
 
     def create
         @order = Order.new(order_params)
+        @order.customer_id = current_customer.id
         if @order.save
             redirect_to public_orders_complete_path
         else
@@ -44,6 +45,8 @@ class Public::OrdersController < ApplicationController
     end
 
     def complete
+        @order = Order.new
+        @cart_items = current_customer.cart_items
     end
 
     def index
@@ -73,13 +76,3 @@ class Public::OrdersController < ApplicationController
 
     end
 end
-
-#def confirm_params
-	#これは許可をだし、戻り値に格納された値を返すがその後も処理があるのでメソッドの戻り値にはならない
-	#params.permit(
-		#カラムたち
-	#)
-
-	#こっちはこのメソッドの中で最後の処理なのでこの値がメソッドの戻り値になる
-	#送られてきたパラメータのうちOrderのカラムとして適切な値をまとめる処理
-#end

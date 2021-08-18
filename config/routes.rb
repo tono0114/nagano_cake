@@ -39,9 +39,10 @@ Rails.application.routes.draw do
       end
     end
 
+    get 'orders/complete' => 'orders#complete'
     resources :orders, except: [:update, :destroy]
     post 'orders/confirm' => 'orders#confirm'
-    get 'orders/complete' => 'orders#complete'
+
 
     resources :addresses, except: [:new, :show]
 
