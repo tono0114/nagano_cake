@@ -5,8 +5,8 @@
       <h5 class="addresses">配送先登録/一覧</h5>
     </div>
     <div class="col">
-      <table>
       <%= form_with model: @address, url: public_addresses_path, local: true do |f| %>
+      <table>
         <tr>
           <td class="col-md-3"><p class="mb-2">郵便番号(ハイフンなし)</p></td>
           <td class="col-md-6"><%= f.text_field :postal_code, class: "mb-2" %></td>
@@ -25,8 +25,8 @@
         <tr>
           <td><%= f.hidden_field :customer_id, :value => @customer.id %></td>
         </tr>
-      <% end %>
       </table>
+      <% end %>
       <div class="col-md-9">
         <table border="1" class="mt-5" width="100%">
           <thead class="address_table_title">

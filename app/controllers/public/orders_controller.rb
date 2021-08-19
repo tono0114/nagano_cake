@@ -3,7 +3,23 @@ class Public::OrdersController < ApplicationController
     def create
         @order = Order.new(order_params)
         @order.customer_id = current_customer.id
+
+        #支払金額の計算
+        total_price = 0
+        current_customer.cart_items.each { |ci| total_price += ci.total_price }
+        @order.total_payment = total_price + 800
+
         if @order.save
+            @cart_items = current_customer.cart_items.all
+            @cart_items.each do |cart_item|
+                OrderItem.create(
+                    item_id: cart_item.item.id,
+                    order_id: @order.id,
+                    order_price: cart_item.item.price,
+                    amount: cart_item.amount
+                )
+            end
+            @cart_items.destroy_all
             redirect_to public_orders_complete_path
         else
            @customer = current_customer
@@ -50,6 +66,7 @@ class Public::OrdersController < ApplicationController
     end
 
     def index
+        @orders = Order.all
     end
 
     def show

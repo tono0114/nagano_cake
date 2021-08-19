@@ -16,6 +16,8 @@ ActiveRecord::Schema.define(version: 2021_07_31_014551) do
     t.string "name"
     t.string "postal_code"
     t.string "address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer "customer_id"
   end
 
@@ -38,6 +40,8 @@ ActiveRecord::Schema.define(version: 2021_07_31_014551) do
 
   create_table "cart_items", force: :cascade do |t|
     t.integer "amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer "customer_id"
     t.integer "item_id"
   end
@@ -69,6 +73,8 @@ ActiveRecord::Schema.define(version: 2021_07_31_014551) do
 
   create_table "genres", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "items", force: :cascade do |t|
@@ -77,6 +83,8 @@ ActiveRecord::Schema.define(version: 2021_07_31_014551) do
     t.text "introduction"
     t.integer "price"
     t.boolean "is_active", default: true, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer "genre_id"
     t.string "image"
   end
@@ -85,6 +93,8 @@ ActiveRecord::Schema.define(version: 2021_07_31_014551) do
     t.integer "order_price"
     t.integer "amount"
     t.integer "create_status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer "item_id"
     t.integer "order_id"
   end
@@ -97,6 +107,8 @@ ActiveRecord::Schema.define(version: 2021_07_31_014551) do
     t.integer "total_payment"
     t.integer "payment_method"
     t.integer "order_status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer "customer_id"
   end
 

@@ -7,6 +7,8 @@ class Items < ActiveRecord::Migration[5.2]
       t.text    :introduction
       t.integer :price
       t.boolean :is_active, default: true, null: false
+      t.timestamp :created_at
+      t.timestamp :updated_at
 
     end
   end

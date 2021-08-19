@@ -1,8 +1,13 @@
 <%= render 'layouts/public_header' %>
 <div class="container">
   <div class="row">
-    <div class="col text-center mt-5">
-      <h5>ご注文ありがとうございました！</h5>
+    <div class="col-md-12 my-5"></div>
+    <div class="col-md-12 mt-5"></div>
+    <div class="col-md-12 text-center my-5">
+      <h2>ご注文ありがとうございました！</h2>
+    </div>
+    <div class="col-md-12 text-center mt-5">
+      <p><%= link_to "注文履歴はこちら>>", public_orders_path, class: "text-dark" %></p>
     </div>
   </div>
 </div>

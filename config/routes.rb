@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
     get 'homes/top' => 'homes#top'
     resources :items, except: [:destroy]
-    resources :genres, except: [:new, :show, :destroy]
+    resources :genres, except: [:new, :show]
     resources :customers, except: [:new, :create, :destroy]
     resources :orders, only: [:show, :update]
     resources :order_items, only: [:update]
