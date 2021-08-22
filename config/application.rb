@@ -13,5 +13,6 @@ module NaganoCake
     # -- all .rb files in that directory are automatically loaded.
     Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
     config.time_zone = 'Tokyo'
+    config.i18n.default_locale = :ja
   end
 end

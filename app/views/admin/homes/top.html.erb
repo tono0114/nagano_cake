@@ -17,9 +17,9 @@
           <tbody>
           <% @orders.each do |order| %>
             <tr>
-              <td><%= link_to order.created_at.to_s(:datetime_jp),admin_order_path,class: "text_secondary" %></td>
+              <td><%= link_to order.created_at.to_s(:datetime_jp),admin_order_path(order.id), class: "text-secondary" %></td>
               <td><%= order.customer.last_name %><%= order.customer.first_name %></td>
-              <td><%= order.order_item.amount %></td>
+              <td><%= order.order_items.sum(:amount) %></td>
               <td><%= order.order_status %></td>
             </tr>
           <% end %>

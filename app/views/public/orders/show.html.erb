@@ -9,19 +9,19 @@
       <table border="1" class="mt-1" width="100%">
         <tr>
           <th class="col-md-3 show_table_title">注文日</th>
-          <td class="col-md-9"></td>
+          <td class="col-md-9"><%= @order.created_at.strftime('%Y/%m/%d') %></td>
         </tr>
         <tr>
           <th class="col-md-3 show_table_title">配送先</th>
-          <td class="col-md-9"></td>
+          <td class="col-md-9"><%= @order.address %></td>
         </tr>
         <tr>
           <th class="col-md-3 show_table_title">支払方法</th>
-          <td class="col-md-9"></td>
+          <td class="col-md-9"><%= @order.payment_method %></td>
         </tr>
         <tr>
           <th class="col-md-3 show_table_title">ステータス</th>
-          <td class="col-md-9"></td>
+          <td class="col-md-9"><%= @order.order_status %></td>
         </tr>
       </table>
     </div>
@@ -30,15 +30,17 @@
       <table border="1" class="mt-1" width="100%">
         <tr>
           <th class="col-md-7 show_table_title">商品合計</th>
-          <td class="col-md-5"></td>
+          <td class="col-md-5">
+            <%= @order.total_payment - 800 %>
+          </td>
         </tr>
         <tr>
           <th class="col-md-7 show_table_title">配送料</th>
-          <td class="col-md-5"></td>
+          <td class="col-md-5">800</td>
         </tr>
         <tr>
           <th class="col-md-7 show_table_title">ご請求額</th>
-          <td class="col-md-5"></td>
+          <td class="col-md-5"><%= @order.total_payment %></td>
         </tr>
       </table>
     </div>
@@ -53,6 +55,16 @@
             <th class="col-md-1">小計</th>
           </tr>
         </thead>
+        <tbody>
+          <% @order_item.each do |order_item| %>
+          <tr>
+            <td><%= order_item.item.name %></td>
+            <td><%= order_item.item.add_tax_price %></td>
+            <td><%= order_item.amount %></td>
+            <td><%= order_item.subtotal %></td>
+          </tr>
+          <% end %>
+        </tbody>
       </table>
     </div>
   </div>

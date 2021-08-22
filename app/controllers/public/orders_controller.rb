@@ -6,7 +6,7 @@ class Public::OrdersController < ApplicationController
 
         #支払金額の計算
         total_price = 0
-        current_customer.cart_items.each { |ci| total_price += ci.total_price }
+        current_customer.cart_items.each { |cart_item| total_price += cart_item.total_price }
         @order.total_payment = total_price + 800
 
         if @order.save
@@ -15,8 +15,8 @@ class Public::OrdersController < ApplicationController
                 OrderItem.create(
                     item_id: cart_item.item.id,
                     order_id: @order.id,
-                    order_price: cart_item.item.price,
-                    amount: cart_item.amount
+                    amount: cart_item.amount,
+                    order_price: cart_item.item.price
                 )
             end
             @cart_items.destroy_all
@@ -70,6 +70,8 @@ class Public::OrdersController < ApplicationController
     end
 
     def show
+        @order = Order.find(params[:id])
+        @order_item = @order.order_items
     end
 
     private
