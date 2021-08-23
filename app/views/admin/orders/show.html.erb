@@ -31,8 +31,8 @@
           <th>注文ステータス</th>
           <td>
             <%= f.select :order_status, Order.order_statuses.keys %>
+            <%= f.submit "更新",class: "btn btn-success btn-sm ml-5" %>
           </td>
-          <td><%= f.submit "更新",class: "btn btn-success btn-sm" %></td>
         </tr>
       </table>
       <% end %>

@@ -42,7 +42,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
       flash[:notice] = "いらっしゃいませ、"
       flash[:notice_2] = "さん！"
       flash[:name] = current_customer.last_name
-      public_root_path(resource)
+      public_customers_mypage_path(resource)
    end
 
     # The path used after sign up for inactive accounts.

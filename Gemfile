@@ -57,3 +57,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
   gem "refile-mini_magick"
   gem "kaminari"
   gem 'carrierwave'
+  gem 'ransack'

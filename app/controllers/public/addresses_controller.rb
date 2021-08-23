@@ -6,7 +6,7 @@ class Public::AddressesController < ApplicationController
     if @address.save
       redirect_to public_addresses_path
     else
-      @addresses = Address.all
+      @addresses = @customer.addresses
       render 'public/addresses/index'
     end
   end

@@ -32,7 +32,6 @@ Rails.application.routes.draw do
     get 'customers/mypage' => 'customers#show'
     get 'customers/unsubscribe' => 'customers#unsubscribe'
     patch '/customers/withdrawal' => 'customers#withdrawal'
-
     resources :cart_items do
       collection do
         delete 'destroy_all'
